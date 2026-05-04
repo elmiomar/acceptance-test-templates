@@ -1,0 +1,15 @@
+# Per-template assignees for release acceptance issues.
+#
+# Format: each key is the issue template filename (relative to
+# .github/ISSUE_TEMPLATE/), each value is a list of GitHub usernames.
+
+acceptance-collections.yml:
+  - elmiomar
+acceptance-landing-pages.yml:
+  - elmiomar
+acceptance-metrics.yml:
+  - elmiomar
+acceptance-restricted-access.yml:
+  - elmiomar
+acceptance-sdp-search.yml:
+  - elmiomar
