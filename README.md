@@ -1,21 +1,45 @@
 # Acceptance Test Templates
 
-This temporary public repo is being used to test converting the acceptance testing checklist into GitHub issue templates.
+`scripts/create_acceptance_issues.py` reads every form under `.github/ISSUE_TEMPLATE/`, substitutes `[Version]` in each title with a release version, and creates one GitHub issue per template with the right labels and assignees.
 
-## Current Template
+## Prerequisites
 
-The first template added is **Acceptance - SDP and Search**. It is based directly on the current acceptance testing checklist and covers Science Data Portal (SDP) and Search Results validation on `testdata.nist.gov`.
+- Python 3.9+
+- `pip install pyyaml`
+- A GitHub token with `repo` scope:
 
-## Quick Test Guide
+  ```powershell
+  $env:GITHUB_TOKEN = "ghp_..."
+  ```
 
-1. Go to the **Issues** tab.
-2. Click **New issue**.
-3. Select **Acceptance - SDP and Search**.
-4. Fill out the required fields.
-5. Try uploading files, such as screenshots or logs, to confirm attachments work.
+## Preview (no API calls)
 
-## Example Issue
+```
+python scripts/create_acceptance_issues.py --version 1.15.5 --repo OWNER/REPO --preview
+```
 
-An [example issue](https://github.com/elmiomar/acceptance-test-templates/issues/3) has been created with this template to see how it looks in practice.
+Prints the title, labels, and assignees for each template. Templates with no `[Version]` in the title are skipped unless you pass `--include-no-version`.
 
+## Create the issues
 
+```
+python scripts/create_acceptance_issues.py --version 1.15.5 --repo OWNER/REPO
+```
+
+To limit the run, use `--include FILENAME` (repeatable) or `--exclude FILENAME`.
+
+## Assignees
+
+`.github/release-acceptance-assignees.yml` maps each template filename to a list of GitHub usernames. Auto-loaded if present. Override per-template on the CLI:
+
+```
+--assign acceptance-metrics.yml=alice,bob
+```
+
+Or set a default for any unmapped template:
+
+```
+--assignee carol
+```
+
+GitHub emails assignees automatically when the issue is created.
