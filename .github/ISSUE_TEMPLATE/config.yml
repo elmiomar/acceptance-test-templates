@@ -1,5 +1,0 @@
-blank_issues_enabled: true
-contact_links:
-  - name: "Acceptance Testing Checklist (Confluence)"
-    url: "https://nistgov.atlassian.net/wiki/spaces/OKB/pages/15959145/Acceptance+Testing"
-    about: "Review the full acceptance testing checklist and release guidance before creating an issue."

@@ -1,13 +1,14 @@
-name: "Acceptance - Landing Page Service and Data Cart"
-description: "Validate LPS and Data Cart on testdata.nist.gov"
-title: "Release [Version] Acceptance Testing: Landing Pages and Data Cart"
+name: "Acceptance - Restricted Public Access"
+description: "Validate Restricted Public Access"
+title: "Release [Version] Acceptance Testing: RPA"
 labels:
   - acceptance-testing
-  - lps
-  - data-cart
+  - restricted-access
+
 body:
   - type: markdown
     attributes:
+      value: |
       value: >-
         Be sure to replace [Version] in the title above.  If necessary, update the testing
         platform, and provide any special instructions.  Assign to a developer for
@@ -23,11 +24,11 @@ body:
         confirmed compliance.  If you encounter problems, describe them in comments to
         this issue (and @-tag relevent devlopers), and consider creating a sub-issue.
         When all assertions are confirmed and no problems remain open, click the "Testing
-        Complete" box and close this issue.
+        Complete" box and close this issue. 
 
 
-        Note that checking multiple broswers or OS platforms is _not_ required, unless 
-        explicitly requested.
+        Note checking multiple broswers or OS platforms is _not_ required, unless explicitly
+        requested.
 
 
         See the [Acceptance Testing page on
@@ -44,37 +45,17 @@ body:
 
   - type: markdown
     attributes:
-      value: "## Landing Page Service (LPS)"
+      value: "## Restricted Public Access (RPA)"
 
   - type: checkboxes
-    id: lps_checks
+    id: restricted_checks
     attributes:
-      label: LPS Checklist
+      label: Restricted Access Checklist
       options:
-        - label: Overall display features (spacing, colors, content) is correct
-        - label: Server-side log (/data/oar/logs/pdr/lps.log) shows no errors when delivering a landing page.
-        - label: File listing appears, folders can be opened, entries are clickable, and download icons appear
-        - label: Single-file download works (indicating that the distribution service is working) [add example rec. id. suitable for testdata]
-        - label: Ensure Access URL display and link properly
-        - label: Choose a LP with a custom Home Page; ensure Visit Home Page button appears and works [add example rec. id.]
-        - label: Research Topics display properly (including collection-specific topics)
-        - label: metadata display can be opened
-        - label: citation can be opened
-        - label: version history can be opened
-        - label: Make sure bulk download page 
-        - label: Ensure Release version badge is up to date
-
-  - type: markdown
-    attributes:
-      value: "## Data Cart"
-
-  - type: checkboxes
-    id: cart_checks
-    attributes:
-      label: Data Cart Checklist
-      options:
-        - label: Landing page Download-All works (Bundles are automatically set up and ready for download; download works) [add example rec id]
-        - label: Icons (particularly download icons) display correctly
+        - label: File listing includes download icons for public files and no icons for restricted files
+        - label: Landing Page includes “Download Data” button link
+        - label: Clicking “Download Data” button brings up download request form
+        - label: Request-to-Download workflow works
 
   - type: checkboxes
     id: browser

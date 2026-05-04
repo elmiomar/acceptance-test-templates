@@ -1,6 +1,6 @@
 name: "Acceptance - SDP and Search"
 description: "Validate Science Data Portal (SDP) and Search Results on testdata.nist.gov"
-title: "[Acceptance][SDP/Search] "
+title: "Release [Version] Acceptance Testing: SDP/Search"
 labels:
   - acceptance-testing
   - sdp
@@ -8,66 +8,39 @@ labels:
 body:
   - type: markdown
     attributes:
-      value: |
-        Use this issue to validate Science Data Portal (SDP) and Search Results functionality on **testdata.nist.gov**.
-
-  - type: input
-    id: environment
-    attributes:
-      label: Environment
-      placeholder: testdata.nist.gov
-    validations:
-      required: true
-
-  - type: input
-    id: release_version
-    attributes:
-      label: Release version
-      placeholder: e.g. 1.2.3rc1
-    validations:
-      required: true
-
-  - type: input
-    id: tester
-    attributes:
-      label: Tester
-      placeholder: Your name
-    validations:
-      required: true
+      value: >-
+        Be sure to replace [Version] in the title above.  If necessary, update the testing
+        platform, and provide any special instructions.  Assign to a developer for
+        completion. 
 
   - type: textarea
-    id: test_data
+    id: instructions
     attributes:
-      label: Test Data / Inputs Used
-      description: Dataset IDs, URLs, queries, filters used during testing
+      label: Instructions
+      value: >-
+        Please test the release candidate running on the platform noted below and confirm
+        the assertions listed below; check the box by each assertion when you have
+        confirmed compliance.  If you encounter problems, describe them in comments to
+        this issue (and @-tag relevent devlopers), and consider creating a sub-issue.
+        When all assertions are confirmed and no problems remain open, click the "Testing
+        Complete" box and close this issue.
+
+
+        Note checking multiple broswers or OS platforms is _not_ required, unless explicitly
+        requested.
+
+
+        See the [Acceptance Testing page on
+        Confluence](https://nistgov.atlassian.net/wiki/spaces/OKB/pages/15959145/Acceptance+Testing)
+        for more information.  
 
   - type: input
-    id: browser
+    id: platform
     attributes:
-      label: Browser
-      placeholder: Chrome 123, Firefox, Safari
-
-  - type: input
-    id: device
-    attributes:
-      label: Device / Screen Size
-      placeholder: Desktop, iPhone 13, 1440p, etc.
-
-  - type: input
-    id: related_pr
-    attributes:
-      label: Related PR / Feature
-      placeholder: Link to PR or feature being tested
-
-  - type: dropdown
-    id: severity
-    attributes:
-      label: Severity (if issues found)
-      options:
-        - Critical (blocks release)
-        - High
-        - Medium
-        - Low
+      label: Testing Platform
+      value: testdata.nist.gov
+    validations:
+      required: true
 
   - type: markdown
     attributes:
@@ -103,36 +76,34 @@ body:
         - label: Research topics include numbers of hits
         - label: Clicking on topics successfully down-select results
 
-  - type: textarea
-    id: steps
+  - type: checkboxes
+    id: browser
     attributes:
-      label: Steps to Reproduce (if failure)
-      description: Step-by-step reproduction
-
-  - type: textarea
-    id: failures
-    attributes:
-      label: Failures / Defects Found
-      description: Describe any failures and include steps to reproduce.
-
-  - type: textarea
-    id: evidence
-    attributes:
-      label: Evidence
-      description: Screenshots, logs, links, etc.
-
-  - type: markdown
-    attributes:
-      value: |
-        You can drag & drop screenshots, logs, or files anywhere in this issue.
-
-  - type: dropdown
-    id: result
-    attributes:
-      label: Overall Result
+      label: Browser(s) tested on (check all that apply; all not required)
       options:
-        - ✅ Pass
-        - ⚠️ Pass with follow-ups
-        - ❌ Fail
-    validations:
-      required: true
+        - label: Chrome
+        - label: Firefox
+        - label: Safari
+        - label: Edge
+        - label: Other
+          
+  - type: checkboxes
+    id: os
+    attributes:
+      label: OS platform(s) tested on (check all that apply; all not required)
+      options:
+        - label: Mac
+        - label: Linux
+        - label: Windows
+        - label: Android
+        - label: iOS (IPhone/IPad)
+        - label: Other
+          
+  - type: checkboxes
+    id: completion
+    attributes:
+      label: Testing Completed
+      options:
+        - label: all acceptance tests completed with no issues found
+
+

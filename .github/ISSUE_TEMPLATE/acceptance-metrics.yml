@@ -1,0 +1,79 @@
+name: "Acceptance - Landing Page Metrics"
+description: "Validate LPS Metrics on testdata.nist.gov"
+title: "Release [Version] Acceptance Testing: Metrics"
+labels:
+  - acceptance-testing
+  - lps
+  - landing-page
+  - metrics
+body:
+  - type: markdown
+    attributes:
+      value: >-
+        Please test the release candidate running on the platform noted below and confirm
+        the assertions listed below; check the box by each assertion when you have
+        confirmed compliance.  If you encounter problems, describe them in comments to
+        this issue (and @-tag relevent developers), and consider creating a sub-issue.
+        When all assertions are confirmed and no problems remain open, click the "Testing
+        Complete" box and close this issue. 
+
+
+        Note checking multiple broswers or OS platforms is _not_ required, unless explicitly
+        requested.
+
+
+        See the [Acceptance Testing page on
+        Confluence](https://nistgov.atlassian.net/wiki/spaces/OKB/pages/15959145/Acceptance+Testing)
+        for more information.  
+
+  - type: input
+    id: platform
+    attributes:
+      label: Testing Platform
+      value: testdata.nist.gov
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: "## Metrics"
+
+  - type: checkboxes
+    id: metrics_checks
+    attributes:
+      label: Metrics Checklist
+      options:
+        - label: Active metrics summary appears on landing page
+        - label: Dataset metric page can be opened and displayed properly _[add example rec id]_
+
+  - type: checkboxes
+    id: browser
+    attributes:
+      label: Browser(s) tested on (check all that apply; all not required)
+      options:
+        - label: Chrome
+        - label: Firefox
+        - label: Safari
+        - label: Edge
+        - label: Other
+          
+  - type: checkboxes
+    id: os
+    attributes:
+      label: OS platform(s) tested on (check all that apply; all not required)
+      options:
+        - label: Mac
+        - label: Linux
+        - label: Windows
+        - label: Android
+        - label: iOS (IPhone/IPad)
+        - label: Other
+          
+  - type: checkboxes
+    id: completion
+    attributes:
+      label: Testing Completed
+      options:
+        - label: all acceptance tests completed with no issues found
+
+
