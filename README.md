@@ -6,15 +6,11 @@
 
 - Python 3.9+
 - `pip install pyyaml`
-- A GitHub token with `repo` scope:
-
-  ```powershell
-  $env:GITHUB_TOKEN = "ghp_..."
-  ```
+- A GitHub token with **Issues: Read and write** permission (fine-grained PAT) or `repo` scope (classic PAT). Export it before running any command below: `export GITHUB_TOKEN=ghp_...`
 
 ## Preview (no API calls)
 
-```
+```bash
 python scripts/create_acceptance_issues.py --version 1.15.5 --repo OWNER/REPO --preview
 ```
 
@@ -22,7 +18,7 @@ Prints the title, labels, and assignees for each template. Templates with no `[V
 
 ## Create the issues
 
-```
+```bash
 python scripts/create_acceptance_issues.py --version 1.15.5 --repo OWNER/REPO
 ```
 
